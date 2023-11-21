@@ -39,7 +39,7 @@
                             <a class="nav-link" href="{{ route('mobil.index') }}">Mobil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pinjam</a>
+                            <a class="nav-link" href="{{ route('pinjam.index') }}">Pinjam</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kembali</a>
