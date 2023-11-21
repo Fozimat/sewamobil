@@ -33,7 +33,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>No Plat</th>
+                                    <th>Mobil</th>
                                     <th>Tanggal Kembali</th>
                                     <th>Total Biaya Sewa</th>
                                 </tr>

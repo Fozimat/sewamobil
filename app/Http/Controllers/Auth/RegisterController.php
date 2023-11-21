@@ -30,7 +30,10 @@ class RegisterController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-
+    protected function redirectPath()
+    {
+        return route('login');
+    }
     /**
      * Create a new controller instance.
      *
@@ -73,10 +76,5 @@ class RegisterController extends Controller
             'no_telepon' => $data['no_telepon'],
             'no_sim' => $data['no_sim'],
         ]);
-    }
-
-    protected function redirectTo()
-    {
-        return route('login');
     }
 }
