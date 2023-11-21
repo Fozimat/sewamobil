@@ -7,6 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## How to Install 
+1. Download this file and extract file/clone using git clone
+2. Copy .env.example and rename to .env
+3. Custom and edit your DB CONNECTION
+4. Run "composer install"
+5. Run "npm install && npm run dev"
+6. Run "php artisan migrate" OR import manually to your database the .sql file.
+7. Run "php artisan serve"
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
