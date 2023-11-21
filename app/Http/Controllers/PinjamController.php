@@ -55,10 +55,30 @@ class PinjamController extends Controller
                 throw new \Exception('Failed');
             }
             DB::commit();
-            return redirect('mobil')->with('message', 'Peminjaman berhasil ditambahkan');
+            return redirect('pinjam')->with('message', 'Peminjaman berhasil ditambahkan');
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect('mobil')->with('message', $e->getMessage());
+            return redirect('pinjam')->with('message', $e->getMessage());
+        }
+    }
+
+    public function cancel(Pinjam $pinjam)
+    {
+        try {
+            DB::beginTransaction();
+            $mobil = Mobil::find($pinjam->mobil_id);
+
+            if ($mobil) {
+                $mobil->update(['status' => 'ready']);
+            } else {
+                throw new \Exception('Mobil tidak ditemukan');
+            }
+            $pinjam->delete();
+            DB::commit();
+            return redirect('pinjam')->with('message', 'Peminjaman dibatalkan');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect('pinjam')->with('message', $e->getMessage());
         }
     }
 

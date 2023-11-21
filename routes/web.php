@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('mobil', MobilController::class);
     Route::resource('pinjam', PinjamController::class);
-    Route::get('pinjam/cancel/{mobil}', [PinjamController::class, 'cancel'])->name('pinjam.cancel');
+    Route::get('pinjam/cancel/{pinjam}', [PinjamController::class, 'cancel'])->name('pinjam.cancel');
 });
 
 
