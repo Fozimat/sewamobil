@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KembaliController;
 use App\Http\Controllers\MobilController;
 use App\Http\Controllers\PinjamController;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,8 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('mobil', MobilController::class);
     Route::resource('pinjam', PinjamController::class);
+    Route::resource('kembali', KembaliController::class);
+    Route::get('/getPinjamanInfo/{mobil_id}', [KembaliController::class, 'getPinjamanInfo']);
     Route::get('pinjam/cancel/{pinjam}', [PinjamController::class, 'cancel'])->name('pinjam.cancel');
 });
 

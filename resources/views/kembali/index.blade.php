@@ -24,8 +24,8 @@
             @endif
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <a href="{{ route('pinjam.create') }}" class="btn btn-success">
-                        Tambah Peminjaman</a>
+                    <a href="{{ route('kembali.create') }}" class="btn btn-success">
+                        Kembalikan</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -33,37 +33,20 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Mobil</th>
                                     <th>No Plat</th>
-                                    <th>Tanggal Mulai</th>
-                                    <th>Tanggal Selesai</th>
-                                    <th>Status Pinjam</th>
-                                    <th>Aksi</th>
+                                    <th>Tanggal Kembali</th>
+                                    <th>Total Biaya Sewa</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($pinjam as $data)
+                                @foreach ($kembali as $data)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->mobil->merk }} {{ $data->mobil->model }}</td>
-                                    <td>{{ $data->mobil->no_plat }}</td>
-                                    <td>{{ $data->tanggal_mulai->isoFormat('D MMMM Y') }}</td>
-                                    <td>{{ $data->tanggal_selesai->isoFormat('D MMMM Y') }}</td>
-                                    <td>
-                                        @if($data->status_pinjam == 'sedang dipinjam')
-                                        <a href="#" class="btn btn-sm btn-success">Sedang dipinjam</a>
-                                        @else
-                                        <a href="#" class="btn btn-sm btn-danger">Sudah dikembalikan</a>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <div class="d-flex justify-content-center gap-3 align-items-start">
-                                            <a href="{{ route('pinjam.cancel', $data->id) }}" class="btn btn-danger">
-                                                Batalkan
-                                            </a>
-                                        </div>
-                                    </td>
+                                    <td>{{ $data->pinjam->mobil->merk }} {{ $data->pinjam->mobil->model }} - {{
+                                        $data->pinjam->mobil->no_plat }}</td>
+                                    <td>{{ $data->tanggal_kembali->isoFormat('D MMMM Y') }}</td>
+                                    <td>@format_angka($data->total_biaya)</td>
                                 </tr>
                                 @endforeach
                             </tbody>

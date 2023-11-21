@@ -49,7 +49,7 @@
                                     <td>{{ $data->merk }}</td>
                                     <td>{{ $data->model }}</td>
                                     <td>{{ $data->no_plat }}</td>
-                                    <td>{{ $data->tarif_sewa }}</td>
+                                    <td>@format_angka($data->tarif_sewa)</td>
                                     <td>
                                         @if($data->status == 'ready')
                                         <a href="#" class="btn btn-sm btn-success">Ready</a>

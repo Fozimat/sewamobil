@@ -43,7 +43,7 @@ class PinjamController extends Controller
 
         try {
             DB::beginTransaction();
-            $pinjam = Pinjam::create(array_merge($request->all(), ['users_id' => Auth::user()->id]));;
+            $pinjam = Pinjam::create(array_merge($request->all(), ['users_id' => Auth::user()->id, 'status_pinjam' => 'sedang dipinjam']));;
             if ($pinjam) {
                 $mobil = Mobil::find($pinjam->mobil_id);
                 if ($mobil) {
