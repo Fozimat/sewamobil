@@ -16,6 +16,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @stack('style')
 </head>
 
 <body>
@@ -34,7 +35,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mobil.index') }}">Mobil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pinjam</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kembali</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,6 +89,7 @@
             @yield('content')
         </main>
     </div>
+    @stack('script')
 </body>
 
 </html>
